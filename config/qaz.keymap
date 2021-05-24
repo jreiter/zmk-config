@@ -13,6 +13,17 @@
 #define SYM      2
 
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods";
+            #binding-cells = <2>;
+            tapping_term_ms = <225>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -51,9 +62,9 @@
         default_layer {
             bindings = <
     &kp Q         &kp W       &kp E       &kp R        &kp T             &kp Y     &kp U      &kp I       &kp O         &kp P
-    &kp A         &kp S       &kp D       &kp F        &kp G             &kp H     &kp J      &kp K       &kp L         &kp SEMI
-    &mt LSHFT Z   &kp X       &kp C       &lt SYM V    &kp B             &kp N     &kp M      &kp CMMA    &mt RSHFT DOT
-    &kp LCTL      &kp LGUI    &none       &none        &lt NUM_PUNC SPC  &trans    &kp RALT   &lt SYM BSLH
+    &kp A         &kp S       &hm LGUI D  &hm LCTL F   &kp G             &kp H     &hm RCTL J &hm RGUI K  &kp L         &kp SEMI
+    &mt LSHFT Z   &kp X       &kp C       &kp V        &kp B             &kp N     &kp M      &kp CMMA    &mt RSHFT DOT
+    &mo SYM       &kp LGUI    &none       &none        &lt NUM_PUNC SPC  &trans    &kp RALT   &lt SYM BSLH
             >;
         };
         num_punc {
